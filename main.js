@@ -1,19 +1,16 @@
-
 // 정규표현식*
-
 
 const str = `
 010-2636-1234
 tpgns123@naver.com
-https://www.omdbapi.con/?apikey=7035c60&s=frozen
+https://www.omdbapi.coㅡ/?apikey=7035c60&s=frozen
 The quick brown fox jumps over the lazy dog.
 abbcccdddd
-`
-
+`;
 
 // `` < 사용시 문자 줄바꿈 가능
 
-// 생성자 
+// 생성자
 // new RegExp('찾는대상', '옵션(플레그)')
 
 /*
@@ -28,7 +25,6 @@ console.log(str.match(regexp))
 
 ///////////////////////////////
 
-
 // 리터럴 방식
 
 /*
@@ -38,7 +34,6 @@ const regexp = /the/gi
 console.log(str.match(regexp))
 
 */
-
 
 /*
 
@@ -63,10 +58,7 @@ console.log(str)
 
 */
 
-
 /////////////////////////////////////////////////////////////////
-
-
 
 // 플러그 (옵션)
 
@@ -78,9 +70,7 @@ console.log(str.match(/\.$/gim))
 
 */
 
-
 // 패턴
-
 
 /*
 
@@ -102,11 +92,13 @@ console.log(
 )
 
 // . : 임의의 문자 대입 
-// \b \b : ex:  str.match(/\b\w{2,3}\b/g) 이경우 3글자로 이루어진 단어만 반환
+// {2,3} str.match(/\b\w{2,3}\b/g) 이경우 2~3글자로 이루어진 단어만 반환
+// /b 를 사용하여 문자의 앞뒤에 뛰어쓰기 또는 / . 등 기호가 있는 2~3글자 찾기
 
 
 
 //ex3 
+// \s 로 뛰어쓰기 "" 빈문자열로 바꾸기 
 
 const h = `  the hello world    !
 
@@ -118,19 +110,12 @@ console.log(
 
 */
 
-
-
 //ex4
 
+console.log(str.match(/.{1,}(?=@)/g));
 
-console.log(
-  str.match(/.{1,}(?=@)/g)
-)
+// 앞쪽 일치 ?= 사용 하여 @ 의 앞쪽에 있는 .{1.} 1개 이상의 임의의 문자 빈환
 
-// 앞쪽 일치 ?= 사용 하여 @ 의 앞쪽에 있는 .{1.} 1개 이상의 임의의 문자 빈환 
-
-console.log(
-  str.match(/(?<=@).{1,}/g)
-)
+console.log(str.match(/(?<=@).{1,}/g));
 
 // 뒤쪽 일치 ?<= 사용 하여 @ 의 뒤쪽에 있는 .{1.} 1개 이상의 임의의 문자 빈환
